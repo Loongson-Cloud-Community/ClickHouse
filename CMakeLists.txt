@@ -12,6 +12,13 @@ foreach(policy
     endif()
 endforeach()
 
+set(CMAKE_CXX_COMPILER "/opt/llvm/bin/clang++")
+set(CMAKE_C_COMPILER "/opt/llvm/bin/clang")
+
+# 只对于clang生效
+set (CMAKE_EXE_LINKER_FLAGS_INIT "")
+set (CMAKE_SHARED_LINKER_FLAGS_INIT "")
+
 # set default policy
 foreach(default_policy_var_name
         # make option() honor normal variables for BUILD_SHARED_LIBS:
@@ -170,7 +177,7 @@ endif ()
 include (cmake/check_flags.cmake)
 include (cmake/add_warning.cmake)
 
-set (COMMON_WARNING_FLAGS "${COMMON_WARNING_FLAGS} -Wall")    # -Werror and many more is also added inside cmake/warnings.cmake
+set (COMMON_WARNING_FLAGS "${COMMON_WARNING_FLAGS} -Wall -mcmodel=large")    # -Werror and many more is also added inside cmake/warnings.cmake
 
 if (COMPILER_CLANG)
     # clang: warning: argument unused during compilation: '-specs=/usr/share/dpkg/no-pie-compile.specs' [-Wunused-command-line-argument]
@@ -355,7 +362,7 @@ endif()
 set (COMPILER_FLAGS "${COMPILER_FLAGS}")
 
 # Our built-in unwinder only supports DWARF version up to 4.
-set (DEBUG_INFO_FLAGS "-g -gdwarf-4")
+#set (DEBUG_INFO_FLAGS "-g -gdwarf-4")
 
 set (CMAKE_BUILD_COLOR_MAKEFILE          ON)
 set (CMAKE_CXX_FLAGS                     "${CMAKE_CXX_FLAGS} ${COMPILER_FLAGS} ${PLATFORM_EXTRA_CXX_FLAG} ${COMMON_WARNING_FLAGS} ${CXX_WARNING_FLAGS}")
@@ -433,11 +440,11 @@ elseif (OS_FREEBSD)
 endif ()
 link_libraries(global-group)
 
-if (WERROR)
-    # Don't pollute CMAKE_CXX_FLAGS with -Werror as it will break some CMake checks.
-    # Instead, adopt modern cmake usage requirement.
-    target_compile_options(global-group INTERFACE "-Werror")
-endif ()
+#if (WERROR)
+#    # Don't pollute CMAKE_CXX_FLAGS with -Werror as it will break some CMake checks.
+#    # Instead, adopt modern cmake usage requirement.
+#    target_compile_options(global-group INTERFACE "-Werror")
+#endif ()
 
 # Make this extra-checks for correct library dependencies.
 if (OS_LINUX AND NOT SANITIZE)
@@ -452,7 +459,7 @@ set (CMAKE_POSTFIX_VARIABLE "CMAKE_${CMAKE_BUILD_TYPE_UC}_POSTFIX")
 
 if (USE_STATIC_LIBRARIES)
     set (CMAKE_POSITION_INDEPENDENT_CODE OFF)
-    if (OS_LINUX AND NOT ARCH_ARM)
+    if (OS_LINUX AND NOT (ARCH_ARM OR ARCH_LOONGARCH64))
         # Slightly more efficient code can be generated
         # It's disabled for ARM because otherwise ClickHouse cannot run on Android.
         set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -fno-pie")

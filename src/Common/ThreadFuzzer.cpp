@@ -27,6 +27,7 @@
 
 /// Starting from glibc 2.34 there are no internal symbols without version,
 /// so not __pthread_mutex_lock but __pthread_mutex_lock@2.2.5
+/// 这里去读取libc.so里面的__pthread_mutex_lock版本
 #if defined(OS_LINUX)
     /// You can get version from glibc/sysdeps/unix/sysv/linux/$ARCH/$BITS_OR_BYTE_ORDER/libc.abilist
     #if defined(__amd64__)
@@ -37,6 +38,8 @@
     #    define GLIBC_SYMVER "GLIBC_2.27"
     #elif (defined(__PPC64__) || defined(__powerpc64__)) && __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
     #    define GLIBC_SYMVER "GLIBC_2.17"
+    #elif defined(__loongarch64)
+    #    define GLIBC_SYMVER "GLIBC_2.0"
     #else
     #    error Your platform is not supported.
     #endif

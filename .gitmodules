@@ -1,7 +1,3 @@
-[submodule "contrib/poco"]
-	path = contrib/poco
-	url = https://github.com/ClickHouse/poco.git
-	branch = clickhouse
 [submodule "contrib/zstd"]
 	path = contrib/zstd
 	url = https://github.com/facebook/zstd.git
@@ -24,9 +20,6 @@
 [submodule "contrib/capnproto"]
 	path = contrib/capnproto
 	url = https://github.com/capnproto/capnproto.git
-[submodule "contrib/double-conversion"]
-	path = contrib/double-conversion
-	url = https://github.com/google/double-conversion.git
 [submodule "contrib/re2"]
 	path = contrib/re2
 	url = https://github.com/google/re2.git
@@ -46,9 +39,6 @@
 	path = contrib/protobuf
 	url = https://github.com/ClickHouse/protobuf.git
 	branch = v3.13.0.1
-[submodule "contrib/boost"]
-	path = contrib/boost
-	url = https://github.com/ClickHouse/boost.git
 [submodule "contrib/base64"]
 	path = contrib/base64
 	url = https://github.com/ClickHouse/Turbo-Base64.git
@@ -165,9 +155,6 @@
 [submodule "contrib/fmtlib"]
 	path = contrib/fmtlib
 	url = https://github.com/fmtlib/fmt.git
-[submodule "contrib/sentry-native"]
-	path = contrib/sentry-native
-	url = https://github.com/ClickHouse/sentry-native.git
 [submodule "contrib/krb5"]
 	path = contrib/krb5
 	url = https://github.com/ClickHouse/krb5
@@ -182,9 +169,6 @@
 [submodule "contrib/miniselect"]
 	path = contrib/miniselect
 	url = https://github.com/danlark1/miniselect
-[submodule "contrib/rocksdb"]
-	path = contrib/rocksdb
-	url = https://github.com/ClickHouse/rocksdb.git
 [submodule "contrib/xz"]
 	path = contrib/xz
 	url = https://github.com/xz-mirror/xz
@@ -203,8 +187,8 @@
 	url = https://github.com/ClickHouse/libpq
 [submodule "contrib/boringssl"]
 	path = contrib/boringssl
-	url = https://github.com/ClickHouse/boringssl.git
-	branch = MergeWithUpstream
+	url = https://github.com/Loongson-Cloud-Community/ch-boringssl.git
+	branch = ch-loong64-c1e01a44
 [submodule "contrib/NuRaft"]
 	path = contrib/NuRaft
 	url = https://github.com/ClickHouse/NuRaft.git
@@ -262,3 +246,19 @@
 [submodule "contrib/minizip-ng"]
 	path = contrib/minizip-ng
 	url = https://github.com/zlib-ng/minizip-ng
+[submodule "contrib/double-conversion"]
+	path = contrib/double-conversion
+	url = https://github.com/Loongson-Cloud-Community/ch-double-conversion.git
+    branch = ch-loong64-cf2f0f3
+[submodule "contrib/boost"]
+	path = contrib/boost
+	url = https://github.com/Loongson-Cloud-Community/ch-boost.git
+[submodule "contrib/poco"]
+	path = contrib/poco
+	url = https://github.com/Loongson-Cloud-Community/ch-poco.git
+[submodule "contrib/sentry-native"]
+	path = contrib/sentry-native
+	url = https://github.com/Loongson-Cloud-Community/ch-sentry-native.git
+[submodule "contrib/rocksdb"]
+	path = contrib/rocksdb
+	url = https://github.com/Loongson-Cloud-Community/ch-rocksdb.git
