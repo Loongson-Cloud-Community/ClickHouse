@@ -1,6 +1,6 @@
 [submodule "contrib/poco"]
 	path = contrib/poco
-	url = https://github.com/ClickHouse/poco.git
+	url = https://github.com/Loongson-Cloud-Community/ch-poco
 	branch = clickhouse
 [submodule "contrib/zstd"]
 	path = contrib/zstd
@@ -26,7 +26,7 @@
 	url = https://github.com/capnproto/capnproto.git
 [submodule "contrib/double-conversion"]
 	path = contrib/double-conversion
-	url = https://github.com/google/double-conversion.git
+	url = https://github.com/Loongson-Cloud-Community/ch-double-conversion
 [submodule "contrib/re2"]
 	path = contrib/re2
 	url = https://github.com/google/re2.git
@@ -48,7 +48,7 @@
 	branch = v3.13.0.1
 [submodule "contrib/boost"]
 	path = contrib/boost
-	url = https://github.com/ClickHouse/boost.git
+	url = https://github.com/Loongson-Cloud-Community/ch-boost.git
 [submodule "contrib/base64"]
 	path = contrib/base64
 	url = https://github.com/ClickHouse/Turbo-Base64.git
@@ -164,7 +164,7 @@
 	url = https://github.com/fmtlib/fmt.git
 [submodule "contrib/sentry-native"]
 	path = contrib/sentry-native
-	url = https://github.com/ClickHouse/sentry-native.git
+	url = https://github.com/Loongson-Cloud-Community/ch-sentry-native
 [submodule "contrib/krb5"]
 	path = contrib/krb5
 	url = https://github.com/ClickHouse/krb5
@@ -181,7 +181,7 @@
 	url = https://github.com/danlark1/miniselect
 [submodule "contrib/rocksdb"]
 	path = contrib/rocksdb
-	url = https://github.com/ClickHouse/rocksdb.git
+	url = https://github.com/Loongson-Cloud-Community/ch-rocksdb
 [submodule "contrib/xz"]
 	path = contrib/xz
 	url = https://github.com/xz-mirror/xz
@@ -200,7 +200,7 @@
 	url = https://github.com/ClickHouse/libpq
 [submodule "contrib/boringssl"]
 	path = contrib/boringssl
-	url = https://github.com/ClickHouse/boringssl.git
+	url = https://github.com/Loongson-Cloud-Community/ch-boringssl
 	branch = unknown_branch_from_artur
 [submodule "contrib/NuRaft"]
 	path = contrib/NuRaft

@@ -1,4 +1,5 @@
 if (NOT ENABLE_LIBPQXX)
+    message(STATUS "Not using libpq")
     return()
 endif()
 

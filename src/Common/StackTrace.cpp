@@ -218,6 +218,8 @@ static void * getCallerAddress(const ucontext_t & context)
     return reinterpret_cast<void *>(context.uc_mcontext.gp_regs[PT_NIP]);
 #elif defined(__riscv)
     return reinterpret_cast<void *>(context.uc_mcontext.__gregs[REG_PC]);
+#elif defined(__loongarch64)
+    return reinterpret_cast<void *>(context.uc_mcontext.__pc);
 #else
     return nullptr;
 #endif
